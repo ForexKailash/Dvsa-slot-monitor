@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#00703c">
+    <title>DVSA Slot Monitor - London Test Centres</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚗 DVSA Slot Monitor</h1>
+            <p>Monitor driving test slots in real-time | London Centres</p>
+        </div>
+
+        <div class="status-bar">
+            <div class="status-item">
+                <span class="status-label">Status:</span>
+                <span id="monitorStatus" class="status-value running">● Active</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Last Check:</span>
+                <span id="lastCheck" class="status-value">--:--:--</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Next Check:</span>
+                <span id="nextCheck" class="status-value">--:--:--</span>
+            </div>
+            <button id="refreshBtn" class="refresh-btn">🔄 Refresh Now</button>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label>Check Interval:</label>
+                <select id="intervalSelect">
+                    <option value="5">Every 5 minutes</option>
+                    <option value="10">Every 10 minutes</option>
+                    <option value="15" selected>Every 15 minutes</option>
+                    <option value="30">Every 30 minutes</option>
+                    <option value="60">Every hour</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label>Notifications:</label>
+                <button id="notifyBtn" class="btn-secondary">🔔 Enable Notifications</button>
+            </div>
+            <div class="control-group">
+                <label>Sound Alerts:</label>
+                <label class="switch">
+                    <input type="checkbox" id="soundToggle" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalCentres">0</div>
+                <div class="stat-label">Monitored Centres</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="availableCount">0</div>
+                <div class="stat-label">With Available Slots</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalSlots">0</div>
+                <div class="stat-label">Total Available Slots</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="alertsSent">0</div>
+                <div class="stat-label">Alerts Sent</div>
+            </div>
+        </div>
+
+        <div class="centres-grid" id="centresGrid">
+            <!-- Centres will be loaded here -->
+        </div>
+
+        <div class="history-section">
+            <h3>📋 Alert History</h3>
+            <div id="historyList" class="history-list">
+                <div class="empty-history">No alerts yet. Monitor will show slots here.</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>⚠️ This tool monitors availability only. For educational purposes.<br>
+            Last updated: <span id="footerTime"></span></p>
+            <div class="github-link">
+                ⭐ Star this project on <a href="#" id="githubLink">GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confetti library for celebration effect -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
+    <script src="monitor.js"></script>
+    
+    <script>
+        // Update GitHub link dynamically
+        const repoName = window.location.pathname.split('/')[1];
+        document.getElementById('githubLink').href = `https://github.com/${repoName}/dvsa-slot-monitor`;
+    </script>
+</body>
+          </html>
