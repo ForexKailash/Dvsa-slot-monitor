@@ -1,0 +1,16 @@
+{
+    "name": "DVSA Slot Monitor",
+    "short_name": "SlotMonitor",
+    "description": "Monitor DVSA driving test slots in London",
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#00703c",
+    "background_color": "#ffffff",
+    "icons": [
+        {
+            "src": "https://www.gov.uk/assets/images/govuk-apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ]
+}
