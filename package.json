@@ -1,0 +1,25 @@
+{
+  "name": "dvsa-slot-monitor",
+  "version": "1.0.0",
+  "description": "Monitor DVSA driving test slots in London",
+  "main": "monitor.js",
+  "scripts": {
+    "start": "node monitor.js",
+    "web": "npx http-server -p 8080",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "keywords": ["dvsa", "driving-test", "slot-monitor", "london"],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "node-cron": "^3.0.0",
+    "chalk": "^4.1.2",
+    "nodemailer": "^6.9.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0",
+    "http-server": "^14.1.0"
+  }
+}
